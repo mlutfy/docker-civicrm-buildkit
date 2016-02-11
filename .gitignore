@@ -1,2 +1,4 @@
 civicrm
 id_rsa.pub
+civicrmkit-mysql/data
+civicrmkit-mysql/log
