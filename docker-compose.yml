@@ -1,0 +1,19 @@
+civiweb:
+    build: civicrmkit-apache
+    restart: always
+    ports:
+        - "127.0.0.1:8010:80"
+    cap_drop:
+        - MKNOD
+
+cividb:
+#    build: civicrmkit-mysql
+    image: mariadb:10.1
+    restart: always
+    volumes:
+        - /home/bgm/repositories/docker-civicrm-buildkit/civicrmkit-mysql/data:/var/lib/mysql
+        - /home/bgm/repositories/docker-civicrm-buildkit/civicrmkit-mysql/log:/var/log/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=MYSQL_RANDOM_ROOT_PASSWORD
+    cap_drop:
+        - MKNOD
